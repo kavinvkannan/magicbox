@@ -17,7 +17,9 @@ app.get("/", function(req, res) {
 });
 
 app.get("/download", function(req, res) {
-  res.send(listFiles(BUCKET_NAME));
+  listFiles(BUCKET_NAME, function cb(resp) {
+    res.send(resp);
+  });
 });
 
 app.post("/", function(req, res) {
@@ -44,7 +46,7 @@ function removeTempFile(path) {
   }
 }
 
-async function listFiles(bucketName) {
+async function listFiles(bucketName, cb) {
   const [files] = await storage.bucket(bucketName).getFiles();
   var fileList = [];
 
@@ -54,7 +56,7 @@ async function listFiles(bucketName) {
     console.log(file.name, getImageMetadata(file));
   });
 
-  return fileList;
+  return cb(fileList);
 }
 
 function getImageMetadata(fileObj) {
