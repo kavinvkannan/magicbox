@@ -89,7 +89,7 @@ Firebase Storage was considered as the cloud storage for this project. The reaso
  3. A default bucket storage is free.
  4. Good for smaller applications.
 
-Once you are given view permissions, you should be abloe to view all the uploaded files here: https://console.firebase.google.com/u/2/project/magicdocs-a8309/storage/magicdocs-a8309.appspot.com/files
+Once you are given view permissions, you should be able to view all the uploaded files here: https://console.firebase.google.com/u/2/project/magicdocs-a8309/storage/magicdocs-a8309.appspot.com/files
 
 
 
