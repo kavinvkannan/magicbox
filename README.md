@@ -32,9 +32,7 @@ $ npm install
 
 4. Make sure the `db/db.json` has an empty array inside it.
 
-5. Start the application
-
-Using the VS code Debug mode, choose 'Launch Program'
+5. Start the application using the VS code Debug mode, choose 'Launch Program'
 
 or you may use run 
 ```
@@ -47,17 +45,17 @@ This is just a helper page to upload and list files easily.
 
 You may also test the api with following routes,
 
-Upload:  Returns a uuid upon a successful upload.
+### Upload: ###  Returns a uuid upon a successful upload.
 ```
 POST /file/upload 
 (attach a file with this request)
 ```
 
-Download: Returns the file which was downloaded to the /downloads directory
+### Download: ### Returns the file which was downloaded to the /downloads directory
 ```
 GET /file/download/<file_uuid>
 ```
-List: Returns a list of all files that exisits in the bucket.
+### List: ### Returns a list of all files that exisits in the bucket.
 ```
 GET /file/list 
 ```
