@@ -9,26 +9,28 @@ const storage = new Storage({
 });
 
 async function downloadFile(bucketName, fileID, cb) {
-
-  var fileName = dbUtils.getFileByUUID(fileID).name;
-
   try {
-    const options = {
-      destination: parentDir + "/downloads/" + fileName
-    };
-    await storage
-      .bucket(bucketName)
-      .file(fileName)
-      .download(options, () => {
-        return cb(fileName);
-      });
+    var fileName = dbUtils.getFileByUUID(fileID).name;
+    if (fileName === undefined) {
+      cb("File does not exist");
+    } else {
+      const options = {
+        destination: parentDir + "/downloads/" + fileName
+      };
+      await storage
+        .bucket(bucketName)
+        .file(fileName)
+        .download(options, () => {
+          return cb(fileName);
+        });
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
-function isFileNotFound(fileID){
- return dbUtils.getFileByUUID(fileID)  ===  undefined;
+function isFileNotFound(fileID) {
+  return dbUtils.getFileByUUID(fileID) === undefined;
 }
 
 async function uploadFile(bucketName, file, cb) {
@@ -76,7 +78,6 @@ function getFileMetadata(fileObj) {
 function removeTempFile(path) {
   try {
     fs.unlinkSync(path);
-    console.log("temp file removed");
   } catch (err) {
     console.error(err);
   }

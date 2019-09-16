@@ -16,6 +16,19 @@ function getFileNameById(id) {
   return filename;
 }
 
+function getFileByName(name) {
+
+  var fl = {}
+  db.forEach(file => {
+    if (file.name === name) {
+      fl = file
+    }
+  });
+
+  return fl;
+}
+
+
 function getDB() {
   return db;
 }
@@ -95,6 +108,7 @@ module.exports = {
   getFileNameById,
   getFileUUIDById,
   getFileByUUID,
+  getFileByName,
   getDB,
   updateDB,
   initializeDBWithFile
