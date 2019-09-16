@@ -91,7 +91,7 @@ A local "db" is created which maintains each uploaded file's information. Ideall
 
 Firebase Storage was considered as the cloud storage for this project. The reason for this choice are as follows, 
  1. Firebase cli is a great tool that makes project hosting, storage, and admin easier.
- 2. Firbase console is simple and elegant for administration and vnavigation.
+ 2. Firbase console is simple and elegant for administration.
  3. A default bucket storage is free.
  4. Good for smaller applications.
 
