@@ -73,7 +73,7 @@ GET /file/list
  The project was designed with following considerations,
 
  1. Has to be simple yet consistent.
- 2. Use minimal libraries that are required to conduct core business logic. (resource heavy libraries like lodash and underscore are excluded for this reason)>
+ 2. Use minimal libraries that are required to conduct core business logic. (resource heavy libraries like lodash and underscore are excluded for this reason)
  3. Has to be unit testable. 
  4. Follows NodeJs bulletproof architecture best practices.
  5. Has essential error handlings.
@@ -83,7 +83,7 @@ GET /file/list
 
 A local "db" is created which maitains each file's information. Ideally in a realtime environment, this could be leveraged to an actual db or to a cloud storage. One other reason to maintain a "db" locally was for faster fetching of file information. 
 
-Firebase Storage was chose as rthe cloud storage for this project. The reason for this choice are as follows.
+Firebase Storage was considered as the cloud storage for this project. The reason for this choice are as follows, 
  1. Firebase cli is a great tool that makes project hosting, storage, and admin easier.
  2. Firbase console is simple and elegant for administration and vnavigation.
  3. A default bucket storage is free.
