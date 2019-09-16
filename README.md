@@ -69,6 +69,11 @@ GET /file/list
  In order to run the unit test you may,
  * Use the VS Code Debug option, and you will find the Mocha All configuration. Choose this option and press play.
    You should see the Passing/Failing tests in the debug console.
+   
+   Once the unit test is completed, in the Debug Console window, you should be seeing an output like this,
+
+![Unittest]
+(https://github.com/Candore/magicbox/blob/master/test/Unittest.png)
 
 # Design / Architectural / Technical decisions and reasonings
 
