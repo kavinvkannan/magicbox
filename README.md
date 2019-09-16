@@ -72,8 +72,7 @@ GET /file/list
    
    Once the unit test is completed, in the Debug Console window, you should be seeing an output like this,
 
-![Unittest]
-(https://github.com/Candore/magicbox/blob/master/test/Unittest.png)
+![mocha output](https://github.com/Candore/magicbox/blob/master/test/Unittest.png)
 
 # Design / Architectural / Technical decisions and reasonings
 
