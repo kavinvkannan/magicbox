@@ -28,9 +28,9 @@ $ git clone git@github.com:Candore/magicbox.git && cd magicbox
 $ npm install
 ```
 
-3. Copy config.json emailed to you to the project's root. 
+3. Copy `config.json` emailed to you to the project's root. 
 
-4. Make sure the db/db.json has an empty array inside it.
+4. Make sure the `db/db.json` has an empty array inside it.
 
 5. Start the application
 
