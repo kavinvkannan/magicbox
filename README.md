@@ -45,17 +45,17 @@ This is just a helper page to upload and list files easily.
 
 You may also test the api with following routes,
 
-### Upload: ###  Returns a uuid upon a successful upload.
+### Upload: Returns a uuid upon a successful upload.
 ```
 POST /file/upload 
 (attach a file with this request)
 ```
 
-### Download: ### Returns the file which was downloaded to the /downloads directory
+### Download: Returns the file which was downloaded to the /downloads directory
 ```
 GET /file/download/<file_uuid>
 ```
-### List: ### Returns a list of all files that exisits in the bucket.
+### List: Returns a list of all files that exisits in the bucket.
 ```
 GET /file/list 
 ```
