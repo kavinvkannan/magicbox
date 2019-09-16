@@ -81,9 +81,9 @@ GET /file/list
  5. Has essential error handlings.
  6. Code readability.
 
- The main app.js is a minimialistic starting point which serves a simple helper html file when requested on base URL. Instead of having all the routes written in this single file, it is managed as routes, eg: /file/upload, /file/download under files.js. This gives a clean view and understanding on what the main file does. This also promotes single reason change pricnciple and facilitates unit testing better.
+ The main app.js is a minimalistic starting point which serves a simple helper html file when requested on base URL. Instead of having all the endpoints written in this single file, it is managed as routes, eg: /file/upload, /file/download under files.js. This gives a clean view and understanding on what the main file does. This also promotes single reason change principle and facilitates unit testing better.
 
-A local "db" is created which maitains each file's information. Ideally in a realtime environment, this could be leveraged to an actual db or to a cloud storage. One other reason to maintain a "db" locally was for faster fetching of file information. 
+A local "db" is created which maintains each uploaded file's information. Ideally in a realtime environment, this could be leveraged to an actual db or to a cloud storage. One other reason to maintain a "db" locally was for faster fetching of file information. 
 
 Firebase Storage was considered as the cloud storage for this project. The reason for this choice are as follows, 
  1. Firebase cli is a great tool that makes project hosting, storage, and admin easier.
@@ -91,7 +91,7 @@ Firebase Storage was considered as the cloud storage for this project. The reaso
  3. A default bucket storage is free.
  4. Good for smaller applications.
 
-Calling the download endpoint directly downloads the file to the /downlods folder in the server and returns the response to the path of this file. This may not be the ideal app and this was done for simpler experience upon running the app locally. In an idea situation, the servier should return the download URL for the file and let the client application decide where to store the download file.
+Calling the download endpoint directly downloads the file to the `/downlods` folder in the server and returns the response with the path of this file. This may not be the ideal solution for a server side memory management, but this was done for simpler experience upon running the app locally. In an realtime scenario, the server should return the download URL for the file, and let the client application decide where to store the download file.
 
 Once you are given view permissions, you should be able to view all the uploaded files here: https://console.firebase.google.com/u/2/project/magicdocs-a8309/storage/magicdocs-a8309.appspot.com/files
 
