@@ -4,12 +4,15 @@
     <title>Magic Box</title>
   </head>
   <body>
-    <form action="/" enctype="multipart/form-data" method="post">
+    <form action="/file/upload" enctype="multipart/form-data" method="post">
       <input type="file" name="upload" multiple />
       <input type="submit" value="Upload" />
     </form>
-    <form action="/download" method="get">
+    <form action="/file/download" method="get">
       <input type="submit" value="Download" />
+    </form>
+    <form action="/file/list" method="get">
+      <input type="submit" value="Get List" />
     </form>
   </body>
 </html>
