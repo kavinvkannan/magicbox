@@ -9,22 +9,39 @@ require("dotenv").config();
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
 router.post("/upload", function(req, res) {
-  var form = new formidable.IncomingForm();
-  form.parse(req);
+  try {
+    var form = new formidable.IncomingForm();
+    form.parse(req);
 
-  form.on("fileBegin", function(name, file) {
-    file.path = parentDir + "/uploads/" + file.name;
-  });
-
-  form.on("file", function(name, file) {
-    fileUtils.uploadFile(BUCKET_NAME, file, fileUUID => {
-      res.send({ uuid: fileUUID });
+    form.on("fileBegin", function(name, file) {
+      if (file.size === 0) {
+        return res.status(400).send("Unable to Upload file");
+      } else {
+        file.path = parentDir + "/uploads/" + file.name;
+      }
     });
-  });
+
+    form.on("error", function(err) {
+      return res.status(400).send("Unable to Upload file");
+    });
+
+    form.on("file", function(name, file) {
+      fileUtils.uploadFile(BUCKET_NAME, file, fileUUID => {
+        res.send({ uuid: fileUUID });
+      });
+    });
+  } catch (error) {
+    return res.status(400).send("Unable to Upload file");
+    console.log(error);
+  }
 });
 
 router.get("/download/:fileId", function(req, res) {
-  var fileID = req.params.fileId || "f1422c52-2e11-48cd-8e82-0ccddeee4083";
+  if (!req.params.fileId || fileUtils.isFileNotFound(req.params.fileId)) {
+    return res.status(400).send("No files found with that id.");
+  }
+
+  var fileID = req.params.fileId;
 
   fileUtils.downloadFile(BUCKET_NAME, fileID, function cb(resp) {
     res.sendFile(parentDir + "/downloads/" + resp);

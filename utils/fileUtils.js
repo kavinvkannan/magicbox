@@ -9,6 +9,7 @@ const storage = new Storage({
 });
 
 async function downloadFile(bucketName, fileID, cb) {
+
   var fileName = dbUtils.getFileByUUID(fileID).name;
 
   try {
@@ -24,6 +25,10 @@ async function downloadFile(bucketName, fileID, cb) {
   } catch (error) {
     console.log(error);
   }
+}
+
+function isFileNotFound(fileID){
+ return dbUtils.getFileByUUID(fileID)  ===  undefined;
 }
 
 async function uploadFile(bucketName, file, cb) {
@@ -81,5 +86,6 @@ module.exports = {
   listFiles,
   getFileMetadata,
   uploadFile,
+  isFileNotFound,
   removeTempFile
 };
