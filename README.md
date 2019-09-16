@@ -93,7 +93,7 @@ Firebase Storage was considered as the cloud storage for this project. The reaso
  1. Firebase cli is a great tool that makes project hosting, storage, and admin easier.
  2. Firbase console is simple and elegant for administration.
  3. A default bucket storage is free.
- 4. Good for smaller applications.
+ 4. Good for smaller and single instance applications.
 
 Calling the download endpoint directly downloads the file to the `/downlods` folder in the server and returns the response with the path of this file. This may not be the ideal solution for a server side memory management, but this was done for simpler experience upon running the app locally. In an realtime scenario, the server should return the download URL for the file, and let the client application decide where to store the download file.
 
