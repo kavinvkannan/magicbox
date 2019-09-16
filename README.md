@@ -10,7 +10,7 @@ Magicbox is a simple API microservice running on nodejs v10.13.0 and express.
 * node version 10.13.0 or above.
 
 # Node
-This project is using that v10.13.0 LTS supported version of node
+This project is using v10.13.0 LTS supported version of node
 
 # Development
 
@@ -30,7 +30,9 @@ $ npm install
 
 3. Copy config.json emailed to you to the project's root. 
 
-4. Start the application
+4. Make sure the db/db.json has an empty array inside it.
+
+5. Start the application
 
 Using the VS code Debug mode, choose 'Launch Program'
 
@@ -88,4 +90,8 @@ Firebase Storage was considered as the cloud storage for this project. The reaso
  2. Firbase console is simple and elegant for administration and vnavigation.
  3. A default bucket storage is free.
  4. Good for smaller applications.
+
+Once you are given view permissions, you should be abloe to view all the uploaded files here: https://console.firebase.google.com/u/2/project/magicdocs-a8309/storage/magicdocs-a8309.appspot.com/files
+
+
 
