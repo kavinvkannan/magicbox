@@ -30,11 +30,13 @@ $ npm install
 
 3. Copy `config.json` emailed to you to the project's root. 
 
-4. Make sure the `db/db.json` has an empty array inside it.
+4. Copy the environment variables emailed to you to `.env` file in the root directory.
 
-5. Start the application using the VS code Debug mode, choose 'Launch Program'
+5. Make sure the `db/db.json` has an empty array inside it.
 
-or you may use run 
+6. Start the application using the VS code Debug mode, choose 'Launch Program'
+
+or you may run 
 ```
 npm start
 ```
@@ -43,7 +45,7 @@ The server is configured to run on port 3000. In the browser, type http://localh
 
 This is just a helper page to upload and list files easily.
 
-You may also test the api with following routes,
+You may also test the api with following endpoints,
 
 ### Upload: Returns a uuid upon a successful upload.
 ```
@@ -88,6 +90,8 @@ Firebase Storage was considered as the cloud storage for this project. The reaso
  2. Firbase console is simple and elegant for administration and vnavigation.
  3. A default bucket storage is free.
  4. Good for smaller applications.
+
+Calling the download endpoint directly downloads the file to the /downlods folder in the server and returns the response to the path of this file. This may not be the ideal app and this was done for simpler experience upon running the app locally. In an idea situation, the servier should return the download URL for the file and let the client application decide where to store the download file.
 
 Once you are given view permissions, you should be able to view all the uploaded files here: https://console.firebase.google.com/u/2/project/magicdocs-a8309/storage/magicdocs-a8309.appspot.com/files
 
