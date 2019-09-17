@@ -106,6 +106,6 @@ The microservice app has been deployed to firebase functions and it can be acces
  2. Download endpoint: GET  https://us-central1-magicbox-4d2d7.cloudfunctions.net/app/download/<file_uuid>
  3. List endpoint: GET https://us-central1-magicbox-4d2d7.cloudfunctions.net/app/list
 
-# Note: 
+Note: 
 The original filename is not retained on this deployed version of the application, making download of the file not possible at this moment. This is because the npm package "formidable-serverless" used in the deployed app replaces the original filename upon form parsing.
 However this is achievable with a little more tinkering where both original filename and the replaced filename can be stored to the db and retried upon requesting a download from the bucket.
