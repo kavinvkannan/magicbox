@@ -2,7 +2,7 @@
  * Main file that is invoked upon calling `npm start`
  * This can be also instantiated by calling `node app.js`
  * 
- * This fils starts an express Node.js server running on the PORT provided in the .env 
+ * This file starts an express Node.js server running on the PORT provided in the .env file.
  * If a PORT is not provided, then it launches the server on the default port 3000.
  * 
  * The express app handles the root request to localhost:3000 and returns the response with a static index.html
