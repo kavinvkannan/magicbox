@@ -1,3 +1,12 @@
+/**
+ * Utility file to read and write to local db.
+ * 
+ * A local db is needed to save the file information along with generation of a unique_id for each file.
+ * This way a remote call is avoided to fetch the list of files each time.
+ * 
+ * The local db is a simulation of how the records will be stored in a remote db, or in remote storage.
+ * Having a local db/cache helps to serve the information faster than a remote one.
+ */
 const db = require("../db/db.json");
 const fs = require("fs");
 const uuid = require("uuidv4").default;
@@ -53,21 +62,6 @@ function getFileByUUID(uuid) {
   return fl;
 }
 
-function initializeDBWithFile(files) {
-  var fileList = [];
-  files.forEach(file => {
-    fileList.push(getFileMetadata(file));
-    console.log(file.name, getFileMetadata(file));
-  });
-  fs.writeFile(
-    parentDir + "/db/" + "db.json",
-    JSON.stringify(fileList),
-    err => {
-      if (err) throw err;
-    }
-  );
-}
-
 function updateDB(file) {
   if (db) {
     db.push(getFileMetadata(file));
@@ -110,6 +104,5 @@ module.exports = {
   getFileByUUID,
   getFileByName,
   getDB,
-  updateDB,
-  initializeDBWithFile
+  updateDB
 };
