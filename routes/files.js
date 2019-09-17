@@ -1,3 +1,7 @@
+/**
+ * Receives the request that matches the path '/file' and
+ * it forwards the request to /upload ;  /download/:fileId ; and /list endpoints.
+ */
 var express = require("express");
 var router = express.Router();
 var fileUtils = require("../utils/fileUtils");
@@ -8,6 +12,18 @@ const parentDir = path.resolve(__dirname, "..");
 require("dotenv").config();
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
+/**
+ * POST function that receives the Buffer 
+ * file binary from the incoming request.
+ * 
+ * 'formindable' is an npm package library that helps in
+ * reading of incoming form data.
+ * 
+ * This library emits events on varios stages of file processing.
+ * And those events are handled here to either return an error resonse or 
+ * to move forward with file upload to the bucket witht the help of
+ * fileUtil.
+ */
 router.post("/upload", function(req, res) {
   try {
     var form = new formidable.IncomingForm();
@@ -36,6 +52,13 @@ router.post("/upload", function(req, res) {
   }
 });
 
+/**
+ * GET endpoint that looks for a file's unique identifier.
+ * 
+ * It returs a 404 if a file/record is not found in the local db.
+ * If a record matches, then it downloads the file from the remote bucket and 
+ * forwards the file back to the response.
+ */
 router.get("/download/:fileId", function(req, res) {
   if (!req.params.fileId || fileUtils.isFileNotFound(req.params.fileId)) {
     return res.status(404).send("No files found with that id.");
@@ -56,6 +79,9 @@ router.get("/download/:fileId", function(req, res) {
   }
 });
 
+/**
+ * GET endpoint that sends all the file information in db to the response.
+ */
 router.get("/list", function(req, res) {
   fileUtils.listFiles(BUCKET_NAME, function cb(resp) {
     res.send(resp);
