@@ -40,7 +40,7 @@ or you may run
 npm start
 ```
 
-The server is configured to run on port 3000. In the browser, type http://localhost:3000 and you will see an index.html file served.
+The server is configured to run on port 3000. In the browser, type http://localhost:3000 and you will see an Html page served.
 
 This is just a helper page to upload and list files easily.
 
