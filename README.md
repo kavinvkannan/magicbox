@@ -5,7 +5,6 @@ Magicbox is a simple API microservice running on nodejs v10.13.0 and express.
 
 # Project Dependencies
 * VS code Editor - Recommended since you may use the Launch Program from the Debug mode to start the project.
-* Docker
 * npm 6.9.2 or above
 * node version 10.13.0 or above.
 
@@ -89,8 +88,9 @@ GET /file/list
 
 A local "db" is created which maintains each uploaded file's information. Ideally in a realtime environment, this could be leveraged to an actual db or to a cloud storage. One other reason to maintain a "db" locally was for faster fetching of file information. 
 
-Firebase Storage was considered as the cloud storage for this project. The reason for this choice are as follows, 
+Firebase Storage and Firebase Functions was considered as the cloud storage and Cloud server for this project. The reason for this choice are as follows, 
  1. Firebase cli is a great tool that makes project hosting, storage, and admin easier.
+ 2. Firebase deployments are blazing fast compared to AWS Elastic Bean Stalk.
  2. Firbase console is simple and elegant for administration.
  3. A default bucket storage is free.
  4. Good for smaller and single instance applications.
