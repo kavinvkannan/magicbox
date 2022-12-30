@@ -15,7 +15,7 @@
     "chai-fs": "^2.0.0",
     "dotenv": "^8.1.0",
     "formidable": "^1.2.1",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "supertest": "^4.0.2",
     "uuid": "^3.3.3",
     "uuidv4": "^5.0.1"
